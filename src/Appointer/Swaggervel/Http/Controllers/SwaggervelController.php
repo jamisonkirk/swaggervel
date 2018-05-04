@@ -90,17 +90,12 @@ class SwaggervelController extends Controller
     }
 
     private function makeHost() {
-        $secure = config('swaggervel.secure-protocol');
 
-        $host;
-
-        if ($secure) {
-            $host = secure_url('');
+        if (config('swaggervel.secure-protocol')) {
+            return secure_url('');
         }
         else {
-            $host = url('');
+            return url('');
         }
-
-        return $host;
     }
 }
